@@ -1,0 +1,272 @@
+#checkout {
+  background-color: #f9f9f9;
+  min-height: 100%;
+}
+
+#checkout h3 {
+  font-weight: 900;
+  position: relative;
+}
+
+#checkout .badge {
+  position: absolute;
+  top: -10px;
+  background-color: #eaeaea;
+  color: #878787;
+}
+
+#checkout .page-section {
+  font-weight: 900;
+}
+#checkout .flexCard {
+  padding: 0;
+  margin-bottom: 20px;
+}
+#checkout .flexCard .card {
+  border-radius: 0;
+  position: relative;
+  box-shadow: 1px 1px 40px rgba(0, 0, 0, 0.1);
+  height: 180px;
+}
+#checkout .flexCard .card .left {
+  width: 30%;
+  border-radius: 0;
+}
+
+#checkout span.price {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: #f9f9f9;
+  padding: 5px 7px;
+  font-weight: 900;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 40px rgba(0, 0, 0, 0.3);
+}
+
+#checkout .flexCard .card .right {
+  width: 70%;
+}
+#checkout .flexCard .card .right p {
+  font-size: 12px;
+  margin: 0;
+}
+#checkout .flexCard .card .right .platform {
+  color: #878787;
+  font-size: 12px;
+}
+#checkout .flexCard .card .right .game-title {
+  margin-top: 3px;
+  font-size: 25px;
+  font-weight: 900;
+}
+#checkout .flexCard .card .right .price {
+  margin-top: 10px;
+  font-weight: 300;
+  font-size: 15px;
+}
+#checkout .close-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+#checkout .bottom-details {
+  margin-top: 40px;
+  margin-left: 0;
+  margin-right: 0;
+}
+#checkout .bottom-details .title {
+  color: #878787;
+}
+#checkout .bottom-details .sub-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+#checkout .bottom-details [class^=col-] {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86, 61, 124, 0.2);
+}
+#checkout .confirm,
+#checkout .back {
+  margin-top: 30px;
+  border: 0;
+  border-radius: 0;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 17px 45px;
+  background-color: #3d7fe4;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+#checkout .confirm .right-arrow,
+#checkout .back .right-arrow {
+  margin-left: 10px;
+}
+#checkout .confirm .left-arrow,
+#checkout .back .left-arrow {
+  margin-right: 10px;
+}
+#checkout .back {
+  background: #eee;
+  color: #000;
+  margin-right: 20px;
+}
+#checkout p {
+  margin: 0;
+  font-weight: 700;
+  font-size: 12px;
+}
+#checkout .address-col.left {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+#checkout .address-col {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 1px 1px 40px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+#checkout .address-col .title {
+  font-size: 14px;
+  font-weight: 900;
+}
+#checkout .address-col .address {
+  margin-top: 10px;
+}
+#checkout .address-col .address .detail-wrapper {
+  color: #878787;
+}
+#checkout .address-col .address .detail-wrapper p {
+  margin-bottom: 2px;
+}
+
+#checkout .btn-cart {
+  background-color: #eee; 
+  background-image: none;
+}
+
+#checkout .cart-buttons {
+  margin-top: 10px;
+}
+
+#checkout .cart-buttons span {
+  margin-left: 10px; 
+  margin-right: 10px;
+}
+
+.flexCard {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+.flexCard .popular-text {
+  margin-bottom: 20px;
+}
+.flexCard .card {
+  display: flex;
+  width: 100%;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.flexCard .card .left {
+  width: 40%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.flexCard .card .right {
+  width: 60%;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  padding: 30px;
+  font-weight: 700;
+}
+.flexCard .card .right p {
+  font-size: 12px;
+  margin: 0;
+}
+.flexCard .card .right .country {
+  color: #878787;
+  font-size: 12px;
+}
+.flexCard .card .right .place {
+  margin-top: 3px;
+  font-size: 15px;
+}
+.flexCard .card .right .detail {
+  margin-top: 5px;
+  color: #878787;
+}
+.flexCard .card .right .price {
+  margin-top: 10px;
+}
+
+.window-card {
+  box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.15);
+  margin-bottom: 15px;
+}
+
+.window-card .game-img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 150px;
+  position: relative;
+}
+
+.window-card .description {
+  padding: 20px;
+}
+
+.window-card p {
+  margin-bottom: 7px !important;
+}
+
+.window-card p.platform {
+  font-size: 10px !important;
+  color: #878787;
+}
+
+.window-card p.game-title {
+  font-size: 20px !important;
+  height: 55px;
+}
+
+.window-card p.summary {
+  color: #afafaf;
+  font-weight: 400 !important;
+} 
+
+.window-card .star {
+  display: flex;
+  align-items: center;
+}
+
+.window-card .star .left, .window-card .star .right {
+  display: inherit;
+}
+
+.window-card .star .right {
+  font-size: 10px;
+  color: #afafaf;
+  margin-left: 5px;
+}
+
+.window-card .star .right  p{
+  margin: 0 !important;
+}

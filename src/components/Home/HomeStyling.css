@@ -1,0 +1,17 @@
+.fade-appear {
+  opacity: 0.01;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in-out;
+}
+
+.bgImg {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/images/Horizon-Zero-Dawn-review.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
