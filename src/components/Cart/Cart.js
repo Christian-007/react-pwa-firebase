@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './CartStyling.css';
 import { withRouter } from 'react-router-dom';
 import Ionicon from 'react-ionicons';
-import { database, storage } from '../../modules/firebase/firebase';
+import { database } from '../../modules/firebase/firebase';
 import CartItem from './CartItem';
 
 class Cart extends Component {

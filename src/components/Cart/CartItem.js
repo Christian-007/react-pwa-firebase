@@ -33,22 +33,82 @@ export default class CartItem extends Component {
 
     this.props.changeTotalPrice(price);
 
-    window.dataLayer.push({
-      'event': 'addToCart',
-      'ecommerce': {
-        'currencyCode': 'USD',
-        'add': {        
-          'products': [{
-            'name': this.state.name,
-            'id': this.state.id,
-            'price': this.state.price,
-            'brand': this.state.platform,
-            'variant': 'Full Version',
-            'quantity': 1
-           }]
-        }
-      }
-    });
+    // window.dataLayer.push({
+    //   'event': 'addToCart',
+    //   'ecommerce': {
+    //     'currencyCode': 'USD',
+    //     'add': {        
+    //       'products': [{
+    //         'name': this.state.name,
+    //         'id': this.state.id,
+    //         'price': this.state.price,
+    //         'brand': this.state.platform,
+    //         'variant': 'Full Version',
+    //         'quantity': 1
+    //        }]
+    //     }
+    //   }
+    // });
+
+    // window.dataLayer.push({
+    //   'event': 'checkout',
+    //   'ecommerce': {
+    //     'checkout': {
+    //       'actionField': {'step': 1, 'option': 'Online Payment'},
+    //       'products': [{
+    //         'name': 'iPhone SE - 16GB',
+    //         'id': 'defas123asd',
+    //         'price': '300.50',
+    //         'brand': 'Apple',
+    //         'category': 'Smartphone',
+    //         'variant': 'White',
+    //         'quantity': 1
+    //      }]
+    //    }
+    //  }
+    // });
+
+    // window.dataLayer.push({
+    //   'event': 'checkoutOption',
+    //   'ecommerce': {
+    //     'checkout_option': {
+    //       'actionField': {'step': 1, 'option': 'Receipt'}
+    //     }
+    //   }
+    // });
+    
+  //   window.dataLayer.push({
+  //     'event': 'purchase',
+  //     'ecommerce': {
+  //       'purchase': {
+  //         'actionField': {
+  //           'id': 'S32145',                   
+  //           'revenue': 39.00, 
+  //           'tax': 0,
+  //           'shipping': 0,
+  //           'coupon': 'SUMMER_SALE'
+  //         },
+  //         'products': [{                            
+  //           'name': 'Triblend Android T-Shirt',     
+  //           'id': '12345',
+  //           'price': 15.25,
+  //           'brand': 'Google',
+  //           'category': 'Apparel',
+  //           'variant': 'Gray',
+  //           'quantity': 1,
+  //          },
+  //          {
+  //           'name': 'Donut Friday Scented T-Shirt',
+  //           'id': '67890',
+  //           'price': 33.75,
+  //           'brand': 'Google',
+  //           'category': 'Apparel',
+  //           'variant': 'Black',
+  //           'quantity': 1
+  //          }]
+  //       }
+  //     }
+  //   });
   }
 
   reduceQty = () => {
