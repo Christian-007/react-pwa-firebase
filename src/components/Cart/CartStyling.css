@@ -114,10 +114,12 @@
 #checkout .back .left-arrow {
   margin-right: 10px;
 }
+#checkout .confirm {
+  margin-left: 10px;
+}
 #checkout .back {
   background: #eee;
   color: #000;
-  margin-right: 20px;
 }
 #checkout p {
   margin: 0;

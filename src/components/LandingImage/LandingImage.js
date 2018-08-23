@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {CSSTransition} from 'react-transition-group';
 import './HomeStyling.css';
 import { database } from '../../modules/firebase/firebase';
+import HomeSections from '../HomeSections/HomeSections';
 
 
 class Home extends Component {
@@ -45,7 +46,6 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    console.log('firebase: ', database.app.name);
 
     window.dataLayer.push({
       'event': 'testPage'
@@ -86,10 +86,10 @@ class Home extends Component {
   render() {
     return (
       <CSSTransition
-        in
-        classNames="fade"
-        appear={true}
-        timeout={1000}>
+      in
+      classNames="fade"
+      appear={true}
+      timeout={1000}>
         <div className="bgImg">
         </div>
       </CSSTransition>

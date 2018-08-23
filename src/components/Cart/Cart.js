@@ -16,7 +16,6 @@ class Cart extends Component {
   }
 
   componentDidMount() {
-    console.log('firebase: ', database.app.name);
     this.setState({loading: true});
     let imagesObj = database.ref().child('games');
     imagesObj.once('value', (snapshot) => {
@@ -27,6 +26,10 @@ class Cart extends Component {
         console.log(this.state);
       })
     });
+  }
+
+  checkUserAgent = () => {
+    alert(navigator.userAgent);
   }
 
   onConfirmClick = () => {
@@ -120,6 +123,11 @@ class Cart extends Component {
               <p className="title">Total</p>
               <Total products={this.state.gameStores}/>
               {/* <p className="sub-title">$ {totalPrice}</p> */}
+            </div>
+          </div>
+          <div className="text-right">
+            <div className="btn btn-default back" onClick={this.checkUserAgent}>
+              CHECK USER AGENT
             </div>
           </div>
           <div className="text-right">

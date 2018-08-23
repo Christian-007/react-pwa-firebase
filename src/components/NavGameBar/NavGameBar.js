@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem, Popover, Overlay } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Popover, Overlay, OverlayTrigger, Button } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import { connect } from 'react-redux';
 import './NavStyle.css';
 import logo from '../../assets/images/psicon.png';
 import { auth } from '../../modules/firebase/firebase';
 import { removeUser } from '../../modules/actions/navigation';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 class NavGameBar extends Component {
   constructor(props, context) {
@@ -22,18 +23,48 @@ class NavGameBar extends Component {
   }
 
   signOut = () => {
-    auth.signOut().then(function() {
+    auth.signOut().then(() => {
       // Sign-out successful.
       console.log('signed out');
       this.props.removeUser();
-    }).catch(function(error) {
+      this.props.history.push('/login');
+    }).catch(error => {
       // An error happened.
-      console.log('error happened');
+      console.log('error happened', error);
     });
+  }
+
+  popoverFocus = () => {
+    return (
+      <Popover id="popover-trigger-focus" title="Popover bottom">
+        <p onClick={this.signOut}>Sign out</p> 
+      </Popover>
+    )
+  }
+
+  renderNavLink = () => {
+    const cookies = new Cookies();
+    if (this.props.navigationReducer.user === null) {
+      return (
+        <NavItem eventKey={2} componentClass={Link} href="/login" to="/login">
+          LOGIN
+          <FontAwesome name="user-circle-o" className="right-arrow" />
+        </NavItem>
+      )
+    } else {
+      return (
+        <OverlayTrigger trigger="focus" placement="bottom" overlay={this.popoverFocus()}>
+          <NavItem>
+            <FontAwesome name="user-circle-o" />
+          </NavItem>
+        </OverlayTrigger>
+      )
+    }
   }
 
   render() {
     const currentURL = this.props.navigationReducer.location;
+    const userData = this.props.navigationReducer.user;
     return (
       <div className="navbar-wrapper">
         <Navbar collapseOnSelect className={currentURL === '/'? 'custom-nav opacity': 'custom-nav'}>
@@ -69,24 +100,21 @@ class NavGameBar extends Component {
                 CART
                 <FontAwesome name="shopping-bag" className="right-arrow" />
               </NavItem>
-              <NavItem eventKey={2} componentClass={Link} href="/login" to="/login">
-                LOGIN
-                <FontAwesome name="user-circle-o" className="right-arrow" />
-              </NavItem>
-              <NavItem onClick={this.handleClick}>
-                <FontAwesome name="user-circle-o" size="2x" />
-              </NavItem>
-              <Overlay
-                show={this.state.show}
-                target={this.state.target}
-                placement="bottom"
-                container={this}
-                containerPadding={20}
-              >
-                <Popover id="popover-trigger-click-root-close" onClick={this.signOut}>
-                  Sign out
-                </Popover>
-              </Overlay>
+              {
+              userData === null ? 
+              (
+                <NavItem eventKey={2} componentClass={Link} href="/login" to="/login">
+                  LOGIN
+                  <FontAwesome name="user-circle-o" className="right-arrow" />
+                </NavItem>
+              ) :
+              (
+                <OverlayTrigger trigger="focus" placement="bottom" overlay={this.popoverFocus()}>
+                  <NavItem>
+                    <FontAwesome name="user-circle-o" />
+                  </NavItem>
+                </OverlayTrigger>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Navbar> 
@@ -101,4 +129,4 @@ const mapStateToProps = (state) => ({
   navigationReducer: state.navigationReducer,
 });
 
-export default connect(mapStateToProps, { removeUser })(NavGameBar);
+export default withRouter(connect(mapStateToProps, { removeUser })(NavGameBar));

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from "react-router-dom";
-import Home from '../components/Home/Home';
+import LandingImage from '../components/LandingImage/LandingImage';
 import Cart from '../components/Cart/Cart';
 import { connect } from 'react-redux';
 import { setLocation, setUser } from '../modules/actions/navigation';
 import Login from '../components/Login/Login';
 import { auth } from '../modules/firebase/firebase';
+import Cookies from 'universal-cookie';
+import HomeSections from '../components/HomeSections/HomeSections';
 
 class RouterContainer extends Component {
 
@@ -23,19 +25,6 @@ class RouterContainer extends Component {
     // Send location to redux store, used by NavGameBar.js
     this.props.setLocation(location.pathname);
     console.log('route change', location.pathname);
-    if (this.props.navigationReducer.user === null) {
-      auth.onAuthStateChanged(user => {
-        if (user) {
-          console.log('user is logged in');
-          this.props.setUser(user);
-        } else {
-          // No user is signed in.
-          console.log('user is NOT logged in');
-        }
-      });
-    } else {
-      console.log('user', this.props.navigationReducer.user);
-    }
     
     // window.dataLayer.push({
     //   event: 'authenticated',
@@ -46,7 +35,7 @@ class RouterContainer extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' component={HomeSections} />
         <Route exact path='/cart' component={Cart} />
         <Route exact path='/login' component={Login} />
       </Switch>
