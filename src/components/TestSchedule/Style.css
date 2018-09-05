@@ -1,0 +1,48 @@
+.schedule-wrapper {
+  padding: 15px 20px;
+  box-shadow: 1px 1px 13px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+.schedule-card {
+  text-align: center;
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  background: white;
+  border: none;
+  outline: none;
+}
+
+.schedule-card p {
+  margin: 0;
+}
+
+#testSchedule .row {
+  margin-top: 10px;
+}
+
+#testSchedule h2 {
+  margin-top: 0;
+  font-weight: 700;
+}
+
+#testSchedule .time-text {
+  margin-left: 5px
+}
+
+#testSchedule .schedule-card.schedule-clicked {
+  border: 1px solid green;
+}
+
+#testSchedule .time-clicked {
+  color: green; 
+  font-weight: 700; 
+}
+
+#testSchedule .time-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

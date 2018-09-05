@@ -41,17 +41,47 @@ class Home extends Component {
           starttime: "12.00",
           endtime: "13.30"
         }
+      ],
+      Thursday: [
+        {
+          starttime: "09.00",
+          endtime: "10.30"
+        },
+        {
+          starttime: "12.00",
+          endtime: "13.30"
+        }
+      ],
+      Friday: [
+        {
+          starttime: "09.00",
+          endtime: "10.30"
+        },
+        {
+          starttime: "12.00",
+          endtime: "13.30"
+        }
+      ],
+      Saturday: [
+        {
+          starttime: "09.00",
+          endtime: "10.30"
+        },
+        {
+          starttime: "12.00",
+          endtime: "13.30"
+        }
       ]
     }
   }
 
   componentDidMount() {
 
-    window.dataLayer.push({
-      'event': 'testPage'
-    });
+    // window.dataLayer.push({
+    //   'event': 'testPage'
+    // });
     
-    // Save to firebase db
+    // Save to firebase db (with PUSH)
     // Object.keys(this.state.schedules).map(dayName => {
     //   console.log(dayName);
     //   for (let slot of this.state.schedules[dayName]) {
@@ -63,6 +93,15 @@ class Home extends Component {
     //         console.log('success');
     //       }
     //     });
+    //   }
+    // });
+
+    // Save schedules to firebase db (with SET)
+    // database.ref().child('testSchedules/t12345').set(this.state.schedules, (error) => {
+    //   if (error) {
+    //     console.log('error occurred', error);
+    //   } else {
+    //     console.log('success');
     //   }
     // });
     
@@ -85,14 +124,17 @@ class Home extends Component {
 
   render() {
     return (
-      <CSSTransition
-      in
-      classNames="fade"
-      appear={true}
-      timeout={1000}>
-        <div className="bgImg">
-        </div>
-      </CSSTransition>
+      <div>
+        <img className="img-responsive" src={require("../../assets/images/Horizon-Zero-Dawn-review.jpg")} />
+      </div>
+      // <CSSTransition
+      // in
+      // classNames="fade"
+      // appear={true}
+      // timeout={1000}>
+      //   <div className="bgImg">
+      //   </div>
+      // </CSSTransition>
     )
   }
 }

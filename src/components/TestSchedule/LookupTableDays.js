@@ -1,0 +1,1 @@
+export const daysTable = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

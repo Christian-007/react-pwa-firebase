@@ -8,6 +8,7 @@ import Login from '../components/Login/Login';
 import { auth } from '../modules/firebase/firebase';
 import Cookies from 'universal-cookie';
 import HomeSections from '../components/HomeSections/HomeSections';
+import TestSchedule from '../components/TestSchedule/TestSchedule';
 
 class RouterContainer extends Component {
 
@@ -38,6 +39,7 @@ class RouterContainer extends Component {
         <Route exact path='/' component={HomeSections} />
         <Route exact path='/cart' component={Cart} />
         <Route exact path='/login' component={Login} />
+        <Route exact path='/testSchedule' component={TestSchedule} />
       </Switch>
     );
   }
