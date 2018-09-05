@@ -10,6 +10,9 @@ class TestSchedule extends Component {
     schedules: {},
     user: {},
     displayedSchedule: [],
+    paginationData: [],
+    isLastQuery: false,
+    currentData: '',
   }
 
   componentDidMount() {
@@ -67,16 +70,6 @@ class TestSchedule extends Component {
           }
         });
       });
-      // this.setState({ schedules: snapshot.val() });
-      // Object.values(snapshot.val()).map(daySlot => {
-      //   console.log('starttime user: ' + daySlot.starttime);
-        // Object.values(snapshot.val()[daySlot]).map(slot => {
-        //   if (slot.calendars !== undefined) {
-        //     console.log(slot.calendars['24July2018']); // if this is undefined, then there is no schedule for this slot
-        //   }
-        //   console.log(slot.calendars);
-        // });
-      // });
     });
   }
 
@@ -94,6 +87,62 @@ class TestSchedule extends Component {
 
   clickParent = (itemIndex) => {
     this.setState({selectedItem: itemIndex }, () => {console.log(this.state)});
+  }
+
+  checkLastQuery = (arrayItems) => {
+    let currentItem;
+    if (arrayItems.length === 3) {
+      currentItem = arrayItems.pop();
+      this.setState(prevState => ({
+        ...prevState,
+        paginationData: [
+          ...prevState.paginationData,
+          ...arrayItems
+        ],
+        currentData: currentItem
+      }), () => {
+        console.log('this.state', this.state);
+      });
+    } else {
+      console.log('last query!!!');
+      currentItem = arrayItems[arrayItems.length-1];
+      this.setState(prevState => ({
+        ...prevState,
+        paginationData: [
+          ...prevState.paginationData,
+          ...arrayItems
+        ],
+        currentData: currentItem,
+        isLastQuery: true,
+      }), () => {
+        console.log('this.state', this.state);
+      });
+    }
+  }
+
+  renderTest = () => {
+    database.ref('/testSchedules/t12345').orderByKey().limitToFirst(3).once('value').then(snapshot => {
+      let itemKeys = Object.keys(snapshot.val());
+      this.checkLastQuery(itemKeys);
+      console.log('renderTest', itemKeys);
+    });
+  }
+
+  renderAnotherTest = () => {
+    database.ref('/testSchedules/t12345').orderByKey().limitToFirst(3).startAt(this.state.currentData).once('value').then(snapshot => {
+      let itemKeys = Object.keys(snapshot.val());
+      this.checkLastQuery(itemKeys);
+    });
+  }
+
+  renderDisplay = () => {
+    return this.state.paginationData.map((item,index) => {
+      return (
+        <div key={index}>
+          <p>{item}</p>
+        </div>
+      )
+    })
   }
 
   render() {
@@ -117,6 +166,19 @@ class TestSchedule extends Component {
                 )
               })}
             </div>
+            {this.renderDisplay()}
+            <button onClick={this.renderTest}>Test Pagination</button>
+            {
+              this.state.isLastQuery ?
+              (
+                <p>That's about it</p>
+              )
+              :
+              (
+                <button onClick={this.renderAnotherTest}>Load Another</button>
+              )
+            }
+            
           </div>
         </div>
       </div>
