@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem, Popover, Overlay, OverlayTrigger, Button } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Popover, OverlayTrigger } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import { connect } from 'react-redux';
 import './NavStyle.css';
@@ -7,7 +7,7 @@ import logo from '../../assets/images/psicon.png';
 import { auth } from '../../modules/firebase/firebase';
 import { removeUser } from '../../modules/actions/navigation';
 import { Link, withRouter } from 'react-router-dom';
-import Cookies from 'universal-cookie';
+// import Cookies from 'universal-cookie';
 
 class NavGameBar extends Component {
   constructor(props, context) {
@@ -43,7 +43,7 @@ class NavGameBar extends Component {
   }
 
   renderNavLink = () => {
-    const cookies = new Cookies();
+    // const cookies = new Cookies();
     if (this.props.navigationReducer.user === null) {
       return (
         <NavItem eventKey={2} componentClass={Link} href="/login" to="/login">

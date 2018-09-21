@@ -4,7 +4,7 @@ import { auth, googleAuth } from '../../modules/firebase/firebase';
 import { connect } from 'react-redux';
 import { setUser } from '../../modules/actions/navigation';
 import { Redirect, withRouter } from 'react-router-dom';
-import Cookies from 'universal-cookie';
+// import Cookies from 'universal-cookie';
 
 class Login extends Component {
 

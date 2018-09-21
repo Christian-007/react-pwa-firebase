@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import {CSSTransition} from 'react-transition-group';
 import './HomeStyling.css';
 import { database } from '../../modules/firebase/firebase';
-import HomeSections from '../HomeSections/HomeSections';
-
 
 class Home extends Component {
   state = {
@@ -124,17 +122,17 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <img className="img-responsive" src={require("../../assets/images/Horizon-Zero-Dawn-review.jpg")} />
-      </div>
-      // <CSSTransition
-      // in
-      // classNames="fade"
-      // appear={true}
-      // timeout={1000}>
-      //   <div className="bgImg">
-      //   </div>
-      // </CSSTransition>
+      // <div>
+      //   <img className="img-responsive" src={require("../../assets/images/Horizon-Zero-Dawn-review.jpg")} />
+      // </div>
+      <CSSTransition
+      in
+      classNames="fade"
+      appear={true}
+      timeout={1000}>
+        <div className="bgImg">
+        </div>
+      </CSSTransition>
     )
   }
 }

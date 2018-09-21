@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from "react-router-dom";
-import LandingImage from '../components/LandingImage/LandingImage';
 import Cart from '../components/Cart/Cart';
 import { connect } from 'react-redux';
 import { setLocation, setUser } from '../modules/actions/navigation';
 import Login from '../components/Login/Login';
-import { auth } from '../modules/firebase/firebase';
-import Cookies from 'universal-cookie';
 import HomeSections from '../components/HomeSections/HomeSections';
 import TestSchedule from '../components/TestSchedule/TestSchedule';
 
